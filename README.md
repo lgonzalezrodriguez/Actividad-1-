@@ -1,4 +1,5 @@
 # Actividad-1-
+### Wordle
 Alumnas: Escalante, González Rodríguez, González Taboada y Pappolla
 
 -**Requerimientos:** (ej. tener conexión a internet, instalar  una base de datos, un módulo…)  
