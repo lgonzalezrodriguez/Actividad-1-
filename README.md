@@ -2,7 +2,7 @@
 ### Ahorcado
 Alumnas: Escalante, González Rodríguez, González Taboada y Pappolla
 
--**Requerimientos:** tener el archivo de texto que contiene las palabras para jugar.
+-**Requerimientos:** tener los archivos de texto que contiene las palabras para jugar.
 
 -**¿Cómo se usa el programa?** el jugador al iniciar el juego tiene la posibilidad de elegir entre 3 niveles de dificultad (regidos por la cantidad de caracteres) que desee.  
 
