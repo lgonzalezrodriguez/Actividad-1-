@@ -1,1 +1,34 @@
+print("¡Bienvenido al ahorcado!")
+cant = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
 
+if cant == 1: 
+  
+  import random
+
+  p = open(palabras1.txt)
+
+  palabras = p.readlines()
+  p.close()
+  random.choice(palabras)
+
+elif cant == 2: 
+
+  p = open(palabras2.txt)
+  
+  palabras = p.readlines()
+  p.close()
+  random.choice(palabras)
+  
+elif cant == 3:
+
+  import random
+
+  p = open(palabras3.txt)
+
+  palabras = p.readlines()
+  p.close()
+  random.choice(palabras)
+
+else: 
+
+  print("El número ingresado no está disponible:(")
