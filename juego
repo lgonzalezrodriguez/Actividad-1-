@@ -11,7 +11,9 @@ if cant == 1:
   p.close()
   random.choice(palabras)
 
-elif cant == 2: 
+elif cant == 2:
+
+  import random
 
   p = open(palabras2.txt)
   
