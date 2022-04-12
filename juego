@@ -9,7 +9,7 @@ if nivel == 1:
 
   palabras = p.readlines()
   p.close()
-  print(random.choice(palabras))
+  random.choice(palabras)
 
 elif nivel == 2:
 
@@ -19,7 +19,7 @@ elif nivel == 2:
   
   palabras = p.readlines()
   p.close()
-  print(random.choice(palabras))
+  random.choice(palabras)
   
 elif nivel == 3:
 
@@ -29,7 +29,7 @@ elif nivel == 3:
 
   palabras = p.readlines()
   p.close()
-  print(random.choice(palabras))
+  random.choice(palabras)
 
 else: 
 
