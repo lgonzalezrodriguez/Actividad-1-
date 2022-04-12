@@ -1,7 +1,7 @@
 print("¡Bienvenido al ahorcado!")
-cant = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
+nivel = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
 
-if cant == 1: 
+if nivel == 1: 
   
   import random
 
@@ -11,7 +11,7 @@ if cant == 1:
   p.close()
   random.choice(palabras)
 
-elif cant == 2:
+elif nivel == 2:
 
   import random
 
@@ -21,7 +21,7 @@ elif cant == 2:
   p.close()
   random.choice(palabras)
   
-elif cant == 3:
+elif nivel == 3:
 
   import random
 
