@@ -33,4 +33,4 @@ elif cant == 3:
 
 else: 
 
-  print("El número ingresado no está disponible:(")
+  print("El número ingresado no está disponible:")
