@@ -4,7 +4,7 @@ Alumnas: Escalante, González Rodríguez, González Taboada y Pappolla
 
 -**Requerimientos:** tener los archivos de texto que contiene las palabras para jugar.
 
--**¿Cómo se usa el programa?** el jugador al iniciar el juego tiene la posibilidad de elegir entre 3 niveles de dificultad (regidos por la cantidad de caracteres)  
+-**¿Cómo se usa el programa?** el jugador al iniciar el juego tiene la posibilidad de elegir entre 3 niveles de dificultad (según la cantidad de caracteres)  
 
 -**Sistema de puntaje:** según la longitud de la palabra, se asgina determinada cantidad de puntos por adivinarla (independientemente del tiempo)
 
