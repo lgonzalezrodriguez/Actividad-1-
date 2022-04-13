@@ -50,4 +50,4 @@ while intentos > 0:
         errores+=1
         
         
-  print("_"*len(palabras)
+  print("_"*len(palabras))
