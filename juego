@@ -48,3 +48,6 @@ while intentos > 0:
     else: 
         print("Te quedan 5 intentos")
         errores+=1
+        
+        
+  print("_"*len(palabras)
