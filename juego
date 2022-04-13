@@ -3,10 +3,7 @@ import time
 print("¡Bienvenido al ahorcado!")
 time.sleep(1)
 cant = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
-time.sleep(1)
-print("Tendrás 6 intentos para adivinr la palabra")
-time.sleep(1)
-print("")
+print("Tendrás 6 intentos para adivina")
 
 while True:
     if cant == 1: 
@@ -14,40 +11,48 @@ while True:
         p = open("palabras1.txt")
         palabras = p.readlines()
         p.close()
-        palabra = random.choice(palabras)
-        palabra = palabras[0:len(palabras)-1]
+        palabras = random.choice(palabras)
+
         break
     elif cant == 2:
         import random
         p = open("palabras2.txt")
         palabras = p.readlines()
         p.close()
-        palabra = random.choice(palabras)
-        palabra = palabras[0:len(palabras)-1]
+        palabras = random.choice(palabras)
+  
         break
     elif cant == 3:
         import random
         p = open("palabras3.txt")
         palabras = p.readlines()
         p.close()
-        palabra = random.choice(palabras)
-        palabra = palabras[0:len(palabras)-1]
+        palabras = random.choice(palabras)
+       
         break
     else: 
         print("El número ingresado no está disponible:")
 
-intentos = 6
-letrasUtilizadas = []
 
-while intentos > 0:
-    errores = 0
-    
-    if letra in palabra:
-        letrasUtilizadas.append(letra)
-        print(letra, end="")
-    else: 
-        print("Te quedan 5 intentos")
-        errores+=1
+intentos = 6
+print("_" * len(palabras))
+listaLetras = []
+
+
+while True: 
+    while True:
+        letra = input("Adiviná una letra: ")
+        print(palabras)
+        if letra in palabras:
+            print("Adivinaste una letra")
+            letra.append(listaLetras)
+            break
+        elif intentos ==intentos - 1:
+            print("No adivinaste la letra y perdiste un intento")
+            break
+        else:
+            listaLetras== palabras
+            print("Adivinaste la palabra")
+            print(listaLetras)
         
         
-  print("_"*len(palabras))
