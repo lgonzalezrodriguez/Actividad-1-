@@ -1,45 +1,39 @@
+import random
+import time
 print("¡Bienvenido al ahorcado!")
-nivel = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
+time.sleep(1)
+cant = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
+time.sleep(1)
+print("Tendrás 6 intentos")
 
-if nivel == 1: 
-  
-  import random
+while True:
+    if cant == 1: 
+        import random
+        p = open("palabras1.txt")
+        palabras = p.readlines()
+        p.close()
+        palabras = random.choice(palabras)
+        palabras = palabras[0:len(palabras)-1]
+        break
+    elif cant == 2:
+        import random
+        p = open("palabras2.txt")
+        palabras = p.readlines()
+        p.close()
+        palabras = random.choice(palabras)
+        palabras = palabras[0:len(palabras)-1]
+        break
+    elif cant == 3:
+        import random
+        p = open("palabras3.txt")
+        palabras = p.readlines()
+        p.close()
+        palabras = random.choice(palabras)
+        palabras = palabras[0:len(palabras)-1]
+        break
+    else: 
+        print("El número ingresado no está disponible:")
 
-  p = open("palabras1.txt")
 
-  palabras = p.readlines()
-  p.close()
-  random.choice(palabras)
-  
-  def jugarNivel1():
-    intentos = 5 
-    letrasUsadas = [];
-
-elif nivel == 2:
-
-  import random
-
-  p = open("palabras2.txt")
-  
-  palabras = p.readlines()
-  p.close()
-  random.choice(palabras)
-  
-  def jugarNivel2():
-
-
-elif nivel == 3:
-
-  import random
-
-  p = open("palabras3.txt")
-
-  palabras = p.readlines()
-  p.close()
-  random.choice(palabras)
-
-  def jugarNivel3():
-
-else: 
-
-  print("El número ingresado no está disponible:")
+intentos = 6
+print("_" * len(palabras))
