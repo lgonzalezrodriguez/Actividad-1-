@@ -41,7 +41,10 @@ espacios = []
 for i in range(len(palabra)):
     espacios.append("_ ")
 
-palabra = palabra.lower()
+p = []
+
+for char in palabra:
+    p.append(char + " ")
 
 while fallas <= 7: 
     if fallas == 0:
@@ -156,6 +159,7 @@ print("Ya usaste las letras: ", letrasUsadas)
 
 laLetraNoEsta = True
 ganar = True
+puntaje = 0
 
 for i in range(len(palabra)):
     if letra == palabra[i]:
@@ -163,10 +167,20 @@ for i in range(len(palabra)):
         laLetraNoEsta = False
         ganar = False
 
-    elif laLetraNoEsta == True:
+    if laLetraNoEsta == True:
         fallas += 1
         ganar = False
         print("La letra no estaba en la palabra")
-        
-    elif ganar == True:
+
+    if ganar == True:
         print("Ganaste!")
+        if len(palabra) == 5:
+            puntaje += 10
+            print("Tu puntaje hasta el momento es: ", puntaje)
+        elif len(palabra) == 10: 
+            puntaje += 15
+            print("Tu puntaje hasta el momento es: ", puntaje)
+        elif len(palabra) >= 11: 
+            puntaje += 35
+            print("Tu puntaje hasta el momento es: ", puntaje)
+        exit()
