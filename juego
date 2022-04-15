@@ -1,50 +1,172 @@
 import random
 import time
+
+fallas = 0
+letrasUsadas = []
+
 print("¡Bienvenido al ahorcado!")
 time.sleep(1)
-cant = int(input("¿Qué nivel te gustaría jugar? (1, 2 o 3): "))
+nivel = int(input("Elija un nivel de dificultad (1, 2 o 3): "))
 time.sleep(1)
-print("Te podés equivocar hasta 6 veces, si adivinás la letra no se pierden intentos")
+print("Te podés equivocar hasta 7 veces")
+time.sleep(1)
 
 while True:
-    if cant == 1: 
+    if nivel == 1: 
         import random
-        p = open("palabras1.txt")
-        palabras = p.readlines()
-        p.close()
+        a = open("palabras1.txt")
+        palabras = a.readlines()
+        a.close()
         palabra = random.choice(palabras)
         break
-    elif cant == 2:
+    elif nivel == 2:
         import random
-        p = open("palabras2.txt")
-        palabras = p.readlines()
-        p.close()
+        a = open("palabras2.txt")
+        palabras = a.readlines()
+        a.close()
         palabra = random.choice(palabras)
         break
-    elif cant == 3:
+    elif nivel == 3:
         import random
-        p = open("palabras3.txt")
-        palabras = p.readlines()
-        p.close()
+        a = open("palabras3.txt")
+        palabras = a.readlines()
+        a.close()
         palabra = random.choice(palabras)
         break
     else: 
-        print("El número ingresado no está disponible:")
+        print("El número ingresado no está disponible. Porfavor ingrese otro que esté entre las opciones")
 
-intentos = 6
-letrasUtilizadas = []
-lista_guiones =  ("_ " * len(palabra)).split()
+espacios = []
 
-time.sleep(1)
-letra = input("Ingresa una letra: ")
+for i in range(len(palabra)):
+    espacios.append("_ ")
 
-while True:
-    for letra in palabra:
-        if letra in palabra:
-            posicion = palabra.index(letra)
-            lista_guiones[posicion] = letra
-            letrasUtilizadas.append(letra)
-            print(lista_guiones)
-        else: 
-            print()
-            intentos -= 1
+palabra = palabra.lower()
+
+while fallas <= 7: 
+    if fallas == 0:
+        print("""
+                       ___
+                      |   |
+                          |
+                          |
+                          |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Es tu primer intento! Ingresá una letra: ")
+        break
+    elif fallas == 1:
+        print("""
+                       ___
+                      |   |
+                      O   |
+                          |
+                          |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Ingresá una letra: ")
+        time.sleep(0.5)
+        print("Te quedan 5 intentos")
+        break
+    elif fallas == 3:
+        print("""
+                       ___
+                      |   |
+                      O_  |
+                          |
+                          |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Ingresá una letra: ")
+        time.sleep(0.5)
+        print("Te quedan 4 intentos")
+        break
+    elif fallas == 4:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                          |
+                          |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Ingresá una letra: ")
+        time.sleep(0.5)
+        print("Te quedan 3 intentos")
+        break
+    elif fallas == 5:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                          |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Ingresá una letra: ")
+        time.sleep(0.5)
+        print("Te quedan 2 intentos")
+        break
+    elif fallas == 6:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                       \  |
+                    ______|
+        """)
+        print(''.join(espacios))
+        time.sleep(0.5)
+        letra = input("Ingresá una letra: ")
+        time.sleep(0.5)
+        print("Te queda 1 intento")
+        break
+    elif fallas == 7:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                     / \  |
+                    ______|
+        """)
+        print(''.join(espacios))
+        print("Perdiste:(")
+        time.sleep(0.5)
+        print("La palabra era ", palabra)
+        break
+
+if letra in letrasUsadas:
+    print("Esa letra ya la usaste")
+else:
+    letrasUsadas.append(letra)
+
+print("Ya usaste las letras: ", letrasUsadas)
+
+laLetraNoEsta = True
+ganar = True
+
+for i in range(len(palabra)):
+    if letra == palabra[i]:
+        espacios[i] = letra + " "
+        laLetraNoEsta = False
+        ganar = False
+
+    elif laLetraNoEsta == True:
+        fallas += 1
+        ganar = False
+        print("La letra no estaba en la palabra")
+        
+    elif ganar == True:
+        print("Ganaste!")
