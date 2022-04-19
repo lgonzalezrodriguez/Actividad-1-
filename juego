@@ -1,6 +1,8 @@
+import os
 import random
 from threading import Timer
 import time
+
 
 
 print("¡Bienvenido al ahorcado!")
@@ -47,6 +49,12 @@ for i in range(0,(len(palabraSecreta) - 2)):
 print(lineas)
 
 
+def terminarPrograma():
+    print("Se terminó el tiempo pasaron 5 segundos")        
+    os._exit(1) 
+    
+t = Timer(12.0, terminarPrograma)
+t.start()
  
 while True:
     while True:
@@ -160,10 +168,3 @@ while intentos <= 6:
                     ______|
         """)
         break
-
-
-def terminarPrograma():
-    print("Se terminó el tiempo pasaron 5 segundos")
-    exit()
-
-t = Timer(5.0, terminarPrograma())
