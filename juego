@@ -1,58 +1,169 @@
 import random
+from threading import Timer
 import time
+
+
 print("¡Bienvenido al ahorcado!")
 time.sleep(1)
-cant = int(input("Ingrese qué nivel querés jugar (1, 2 o 3): "))
-print("Tendrás 6 intentos para adivina")
+nivel = int(input(" Elija un nivel de dificultad (1, 2 o 3): "))
+time.sleep(1)
+print("Te podés equivocar hasta 6 veces")
+time.sleep(1)
 
 while True:
-    if cant == 1: 
+    if nivel == 1: 
         import random
-        p = open("palabras1.txt")
-        palabras = p.readlines()
-        p.close()
-        palabras = random.choice(palabras)
-
+        a = open("palabras1.txt")
+        palabras = a.readlines()
+        a.close()
+        palabraSecreta= random.choice(palabras)
+        puntaje = 10
         break
-    elif cant == 2:
+    elif nivel == 2:
         import random
-        p = open("palabras2.txt")
-        palabras = p.readlines()
-        p.close()
-        palabras = random.choice(palabras)
-  
+        a = open("palabras2.txt")
+        palabras = a.readlines()
+        a.close()
+        palabraSecreta= random.choice(palabras)
+        puntaje = 20
         break
-    elif cant == 3:
+    elif nivel == 3:
         import random
-        p = open("palabras3.txt")
-        palabras = p.readlines()
-        p.close()
-        palabras = random.choice(palabras)
-       
+        a = open("palabras3.txt")
+        palabras = a.readlines()
+        a.close()
+        palabraSecreta= random.choice(palabras)
+        puntaje = 30
         break
     else: 
-        print("El número ingresado no está disponible:")
+        print("El número ingresado no está disponible. Porfavor ingresá otro que esté entre las opciones")
 
-
+espacios = []
 intentos = 6
-print("_" * len(palabras))
-listaLetras = []
+listaLetrasAdivinadas = []
+lineas = " _ "
+for i in range(0,(len(palabraSecreta) - 2)):
+    lineas = lineas + " _ "
+print(lineas)
 
 
-while True: 
+ 
+while True:
     while True:
-        letra = input("Adiviná una letra: ")
-        print(palabras)
-        if letra in palabras:
-            print("Adivinaste una letra")
-            letra.append(listaLetras)
-            break
-        elif intentos ==intentos - 1:
-            print("No adivinaste la letra y perdiste un intento")
-            break
+        letraAdivinada = input("Adivina una letra: ")
+        if(len(letraAdivinada) != 1 or letraAdivinada.isnumeric() or letraAdivinada == ""):
+            print("Eso no es una letra intenta con una sola letra")
         else:
-            listaLetras== palabras
-            print("Adivinaste la palabra")
-            print(listaLetras)
+            if letraAdivinada.lower() in listaLetrasAdivinadas:
+                print("Ya habias intentado con esa letra intenta con otra por favor")
+            else:
+                listaLetrasAdivinadas.append(letraAdivinada)
+ 
+                if letraAdivinada.lower() in palabraSecreta:
+                    print("Felicidades adivinaste una letra")
+                    break
+                else:
+                    intentos = (intentos - 1)
+                    print("Te equivocaste y perdiste una vida , te quedan " + str(intentos) + " intentos ")
+                    break
         
-        
+    if intentos == 0:
+        print("Perdiste, la palabra secreta era: ", palabraSecreta)
+        break
+
+    espacios = ""
+
+    letrasFaltantes = 1
+    for letra in palabraSecreta:
+        if letra in listaLetrasAdivinadas:
+            espacios = espacios + letra 
+        else:
+            espacios = espacios + " _ "
+            letrasFaltantes = letrasFaltantes - 1
+    
+    print(espacios)
+ 
+
+    if letrasFaltantes == 0:
+        print("Felicidades ganaste, tu puntaje es", puntaje)
+        print("La palabra secreta es: ", palabraSecreta)
+        break
+
+while intentos <= 6: 
+    if intentos == 6:
+        print("""
+                       ___
+                      |   |
+                          |
+                          |
+                          |
+                    ______|
+        """)
+        break
+    elif intentos == 5:
+        print("""
+                       ___
+                      |   |
+                      O   |
+                          |
+                          |
+                    ______|
+        """)
+        break
+    elif intentos == 4:
+        print("""
+                       ___
+                      |   |
+                      O_  |
+                          |
+                          |
+                    ______|
+        """)
+        break
+    elif intentos == 3:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                          |
+                          |
+                    ______|
+        """)
+        break
+    elif intentos == 2:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                          |
+                    ______|
+        """)
+        break
+    elif intentos == 1:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                       \  |
+                    ______|
+        """)
+        break
+    elif intentos == 0:
+        print("""
+                       ___
+                      |   |
+                     _O_  |
+                      |   |
+                     / \  |
+                    ______|
+        """)
+        break
+
+
+def terminarPrograma():
+    print("Se terminó el tiempo pasaron 5 segundos")
+    exit()
+
+t = Timer(5.0, terminarPrograma())
