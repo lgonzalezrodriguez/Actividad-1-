@@ -10,9 +10,9 @@ Alumnas: Escalante, González Rodríguez, González Taboada y Pappolla
 
 A) Si la longitud de la palabra es de 5 caracteres son 10 puntos  
 
-B) Si la longitud de la palabra es de 10 caracteres son 15 puntos  
+B) Si la longitud de la palabra es de 10 caracteres son 20 puntos  
 
-C) Si la longitud de la palabra es de 11 caracteres o más son 50 puntos  
+C) Si la longitud de la palabra es de 11 caracteres o más son 30 puntos  
 
 
 -**Funciones extra:**  
