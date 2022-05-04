@@ -51,11 +51,11 @@ print(lineas)
 
 def terminarPrograma():
     print("")
-    print(" Se terminó el tiempo pasaron 12 segundos")      
+    print(" Se terminó el tiempo pasaron 25 segundos")      
     print("La palabra era ", palabraSecreta)  
     os._exit(1) 
     
-t = Timer(12.0, terminarPrograma)
+t = Timer(25.0, terminarPrograma)
 t.start()
  
 while True:
